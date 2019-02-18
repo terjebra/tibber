@@ -37,3 +37,7 @@ When the app starts it prompts for an api-token, that may be obtained at [Tibber
 ## Color scheme
 
 Colorsfrom [Coolors](https://coolors.co/05668d-028090-00a896-02c39a-f0f3bd)
+
+## Demo
+
+[kwHCost](https://kwhcost.surge.sh)

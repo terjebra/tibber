@@ -12,19 +12,22 @@ let component = ReasonReact.reducerComponent("LiveCurrentEnergyPrice");
 
 let make = (~onPriceElapsed, ~text, ~subText, ~startsAt, _children) => {
   ...component,
-  initialState: () => {ticks: toMilliseconds(startsAt), endTime: endTimeInMilliseconds(startsAt)},
+  initialState: () => {
+    ticks: toMilliseconds(startsAt),
+    endTime: endTimeInMilliseconds(startsAt),
+  },
   reducer: (action, state) =>
     switch (action) {
     | Tick =>
       ReasonReact.UpdateWithSideEffects(
         {
-          ticks: state.ticks +. 1000., 
-          endTime: endTimeInMilliseconds(startsAt)},
+          ticks: state.ticks +. 1000.,
+          endTime: endTimeInMilliseconds(startsAt),
+        },
         (
           _self => {
             let timeLeft = diffTime(state.endTime, state.ticks);
-            Js.log(timeLeft);
-            if (timeLeft == 0. ) {
+            if (timeLeft == 0.) {
               onPriceElapsed();
             };
           }
